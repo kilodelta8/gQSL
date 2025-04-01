@@ -2,7 +2,7 @@
 
 ## Phase 1: Standalone Application (C & GTK)
 ### 1. Project Goals and Scope:
-**Goal:** Develop a user-friendly, standalone desktop application for ham radio operators to log QSL contacts in ADIF format.
+- **Goal:** Develop a user-friendly, standalone desktop application for ham radio operators to log QSL contacts in ADIF format.
 **Scope:**
 - Create a GTK-based GUI adhering to GNOME HIG.
 - Implement data entry fields for essential QSL information (Callsign, Date, Time, Frequency, Mode, RST, etc.).
