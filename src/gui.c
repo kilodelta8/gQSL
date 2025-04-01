@@ -1,18 +1,66 @@
 // gui.c
-
-#include "./include/gui.h"
+#include "../include/gui.h"
+#include "../include/log_manager.h"
 #include <gtk/gtk.h>
-#include <gtk/gtkentry.h> // Include GtkEntry header
+#include <gtk/gtkentry.h>
 #include <string.h>
 
 GtkWidget *callsign_entry;
 GtkWidget *date_entry;
 GtkWidget *time_entry;
-GtkWidget *stationCallsign_entry;
-GtkWidget *band_entry;
-GtkWidget *frequency_entry;
+GtkWidget *freq_entry;
 GtkWidget *mode_entry;
-GtkWidget *signalReport_entry;
+GtkWidget *rst_sent_entry;
+GtkWidget *rst_rcvd_entry;
+GtkWidget *band_entry;
+GtkWidget *my_call_entry;
+GtkWidget *gridsquare_entry;
+
+static void add_log_entry_callback(GtkWidget *widget, gpointer data) {
+    LogEntry *entry = create_log_entry(
+        gtk_editable_get_text(GTK_EDITABLE(date_entry)),
+        gtk_editable_get_text(GTK_EDITABLE(time_entry)),
+        gtk_editable_get_text(GTK_EDITABLE(callsign_entry)),
+        atof(gtk_editable_get_text(GTK_EDITABLE(freq_entry))),
+        gtk_editable_get_text(GTK_EDITABLE(mode_entry)),
+        gtk_editable_get_text(GTK_EDITABLE(rst_sent_entry)),
+        gtk_editable_get_text(GTK_EDITABLE(rst_rcvd_entry)),
+        gtk_editable_get_text(GTK_EDITABLE(band_entry)),
+        gtk_editable_get_text(GTK_EDITABLE(my_call_entry)),
+        gtk_editable_get_text(GTK_EDITABLE(gridsquare_entry))
+    );
+
+    if (entry) {
+        add_log_entry(entry);
+        clear_log_entry_fields();
+    }
+}
+
+GtkWidget *create_main_window(GtkApplication *app) {
+    GtkWidget *window;
+    GtkWidget *grid;
+    GtkWidget *add_button;
+
+    // ... (rest of the GUI setup)
+
+    // Add signal handler to the add button.
+    g_signal_connect(add_button, "clicked", G_CALLBACK(add_log_entry_callback), NULL);
+
+    return window;
+}
+
+void clear_log_entry_fields(void) {
+    gtk_editable_set_text(GTK_EDITABLE(callsign_entry), "");
+    gtk_editable_set_text(GTK_EDITABLE(date_entry), "");
+    gtk_editable_set_text(GTK_EDITABLE(time_entry), "");
+    gtk_editable_set_text(GTK_EDITABLE(freq_entry), "");
+    gtk_editable_set_text(GTK_EDITABLE(mode_entry), "");
+    gtk_editable_set_text(GTK_EDITABLE(rst_sent_entry), "");
+    gtk_editable_set_text(GTK_EDITABLE(rst_rcvd_entry), "");
+    gtk_editable_set_text(GTK_EDITABLE(band_entry), "");
+    gtk_editable_set_text(GTK_EDITABLE(my_call_entry), "");
+    gtk_editable_set_text(GTK_EDITABLE(gridsquare_entry), "");
+}
 
 GtkWidget *create_main_window(GtkApplication *app) {
   GtkWidget *window;
