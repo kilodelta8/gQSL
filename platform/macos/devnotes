@@ -1,0 +1,5 @@
+gcc /Users/john/Dev/gQSL/src/main.c -o gqsl `pkg-config --cflags --libs gtk+-3.0`
+
+meson build
+ninja -C build
+./build/gqsl
