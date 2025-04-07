@@ -1,0 +1,62 @@
+[
+    {
+        "qso_date": "",
+        "time_on": "",
+        "call": "",
+        "freq": 0.0,
+        "mode": "",
+        "rst_sent": "",
+        "rst_rcvd": "",
+        "band": "",
+        "my_call": "",
+        "gridsquare": ""
+    },
+    {
+        "qso_date": "2014-03-15",
+        "time_on": "0145",
+        "call": "W9CYA",
+        "freq": 7.209000110626221,
+        "mode": "SSB",
+        "rst_sent": "",
+        "rst_rcvd": "",
+        "band": "40",
+        "my_call": "KD8UFZ",
+        "gridsquare": "EN521u"
+    },
+    {
+        "qso_date": "2014-04-20",
+        "time_on": "2030",
+        "call": "KC8LSD",
+        "freq": 145.47000122070312,
+        "mode": "FM",
+        "rst_sent": "",
+        "rst_rcvd": "",
+        "band": "2",
+        "my_call": "KD8UFZ",
+        "gridsquare": "EM79qs"
+    },
+    {
+        "qso_date": "2014-06-12",
+        "time_on": "1754",
+        "call": "W8YI",
+        "freq": 7.0289998054504395,
+        "mode": "CW",
+        "rst_sent": "",
+        "rst_rcvd": "",
+        "band": "40",
+        "my_call": "KD8UFZ",
+        "gridsquare": "EN52gb"
+    },
+    {
+        "qso_date": "2024-02-13",
+        "time_on": "1350",
+        "call": "W8YI",
+        "freq": 7.0289998054504395,
+        "mode": "CW",
+        "rst_sent": "",
+        "rst_rcvd": "",
+        "band": "40",
+        "my_call": "KD8UFZ",
+        "gridsquare": ""
+    }
+]

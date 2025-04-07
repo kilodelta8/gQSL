@@ -4,3 +4,6 @@
 // Add macOS-specific platform declarations here
 
 #endif // GQSL_PLATFORM_MACOS_H
+
+
+

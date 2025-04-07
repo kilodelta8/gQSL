@@ -1,0 +1,16 @@
+/* Make text in ColumnView cells and headers larger */
+columnview.log_list > listitem > label.log_cell {
+    font-size: 1.1em; /* Adjust size as needed */
+}
+
+/* Style column headers if needed */
+columnview.log_list > header {
+   /* font-weight: bold; */
+   /* padding: 6px; */
+}
+
+/* Add padding within cells */
+columnview.log_list > listitem {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}

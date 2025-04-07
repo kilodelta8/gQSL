@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="gqsl">
+
+  <schema id="org.example.gqsl" path="/org/example/gqsl/">
+
+    <key name="dark-mode" type="b">
+      <default>false</default>
+      <summary>Prefer Dark Theme</summary>
+      <description>Whether the application should request the dark theme variant.</description>
+    </key>
+
+    <key name="contest-mode" type="b">
+      <default>false</default>
+      <summary>Contest Mode Active</summary>
+      <description>Enables the simplified contest mode interface.</description>
+    </key>
+
+    <key name="my-callsign" type="s">
+      <default>''</default>
+      <summary>My Callsign</summary>
+      <description>The user's primary amateur radio callsign (used for MY_CALL, STATION_CALLSIGN, OPERATOR).</description>
+    </key>
+
+    <key name="my-name" type="s">
+      <default>''</default>
+      <summary>My Name</summary>
+      <description>The user's name (used for MY_NAME).</description>
+    </key>
+
+    <key name="my-gridsquare" type="s">
+      <default>''</default>
+      <summary>My Grid Square</summary>
+      <description>The user's 4 or 6 character Maidenhead grid square locator (used for MY_GRIDSQUARE).</description>
+    </key>
+
+    <key name="my-latitude" type="d">
+      <default>0.0</default>
+      <summary>My Latitude</summary>
+      <description>The user's latitude in decimal degrees (N positive, S negative) (used for MY_LAT).</description>
+      <range min="-90.0" max="90.0"/>
+    </key>
+
+    <key name="my-longitude" type="d">
+      <default>0.0</default>
+      <summary>My Longitude</summary>
+      <description>The user's longitude in decimal degrees (E positive, W negative) (used for MY_LON).</description>
+      <range min="-180.0" max="180.0"/>
+    </key>
+
+    <key name="my-cq-zone" type="i">
+      <default>0</default> <summary>My CQ Zone</summary>
+      <description>The user's CQ Zone (used for MY_CQ_ZONE). 0 if unknown.</description>
+      <range min="0" max="40"/>
+    </key>
+
+    <key name="my-itu-zone" type="i">
+      <default>0</default> <summary>My ITU Zone</summary>
+      <description>The user's ITU Zone (used for MY_ITU_ZONE). 0 if unknown.</description>
+       <range min="0" max="90"/>
+    </key>
+
+    <key name="my-dxcc" type="i">
+       <default>0</default> <summary>My DXCC Entity Code</summary>
+       <description>The user station's DXCC entity code (used for MY_DXCC). 0 if unknown.</description>
+     </key>
+
+    <key name="my-country" type="s">
+      <default>''</default>
+      <summary>My Country</summary>
+      <description>The user's country name (used for MY_COUNTRY).</description>
+    </key>
+
+    <key name="my-state" type="s">
+      <default>''</default>
+      <summary>My State/Province</summary>
+      <description>The user's state or province abbreviation (e.g., CA, NY, ON) (used for MY_STATE).</description>
+    </key>
+
+    <key name="my-county" type="s">
+      <default>''</default>
+      <summary>My County</summary>
+      <description>The user's county, format: STATE,COUNTY (e.g., CA,SANTA CLARA) (used for MY_CNTY).</description>
+    </key>
+
+     <key name="my-rig" type="s">
+       <default>''</default>
+       <summary>My Rig Description</summary>
+       <description>Description of the user's equipment (used for MY_RIG).</description>
+     </key>
+
+     <key name="my-antenna" type="s">
+       <default>''</default>
+       <summary>My Antenna Description</summary>
+       <description>Description of the user's antenna (used for MY_ANTENNA).</description>
+     </key>
+
+    <key name="my-timezone" type="s">
+      <default>''</default> <summary>Local Time Zone</summary>
+      <description>The IANA time zone name (e.g., 'America/New_York') for displaying local time. Leave empty to use system default.</description>
+    </key>
+
+    <key name="contest-band" type="s">
+      <default>'20m'</default>
+      <summary>Contest Mode Default Band</summary>
+      <description>The default band to pre-fill when using contest mode logging.</description>
+    </key>
+
+  </schema>
+</schemalist>
