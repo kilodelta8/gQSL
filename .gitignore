@@ -1,1 +1,5 @@
 build/
+.vscode/
+gh_assets/.DS_Store
+.vscode/c_cpp_properties.json
+platform/macos/devnotes

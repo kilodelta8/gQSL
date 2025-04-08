@@ -3,7 +3,9 @@
         {
             "name": "Mac",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/include",
+                "/usr/local/Cellar/glib/2.84.0_1/include/glib-2.0"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",

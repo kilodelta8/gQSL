@@ -5,7 +5,7 @@ project('gQSL', 'c',
 # --- Dependencies ---
 gtk4_dep = dependency('gtk4', version : '>=4.0')
 jansson_dep = dependency('jansson')
-gio_dep = dependency('gio-2.0')
+gio_dep = dependency('gio-2.0') # Needed for GSettings
 
 if not jansson_dep.found()
   error('Jansson library not found.')
@@ -15,24 +15,16 @@ endif
 glib_compile_schemas_prog = find_program('glib-compile-schemas', required : true)
 
 # --- Define Schema Source File ---
-# Ensure this path is correct relative to the project root (where meson.build is)
 gschema_source_dir = meson.current_source_dir() / 'data'
 gschema_file = files('data/org.example.gqsl.gschema.xml')
 
 # --- Custom Target for Build-time Schema Compilation ---
-# This target generates gschemas.compiled inside the build directory
 gschema_compiled_target = custom_target('gqsl-gschemas-compiled',
   input : gschema_file,
-  # Output file name (will be placed in the build directory's root)
   output : 'gschemas.compiled',
-  # Command to run: prog --targetdir <output_dir> <source_dir>
-  # @OUTDIR@ is the directory Meson creates for the output (build/)
-  # gschema_source_dir is the directory containing the input xml
   command : [glib_compile_schemas_prog, '--targetdir', '@OUTDIR@', gschema_source_dir],
-  build_by_default : true # Ensure this runs during `ninja build`
+  build_by_default : true
 )
-# -----------------------------------------------------
-
 
 # --- Source Files ---
 src_files = [
@@ -41,31 +33,20 @@ src_files = [
   'src/adif_handler.c',
   'src/gui.c',
   'src/preferences.c',
+  'src/log_entry_object.c', # <-- Added
   'platform/macos/platform_mac.c',
 ]
 
-
 # --- Executable ---
 executable('gqsl', src_files,
-  dependencies : [
-      gtk4_dep,
-      jansson_dep,
-      gio_dep
-  ],
-  # NOTE: We don't explicitly depend on gschema_compiled_target here,
-  # as it's not linked. build_by_default ensures it runs.
+  dependencies : [ gtk4_dep, jansson_dep, gio_dep ],
   install : true
 )
 
-
-# --- Installation Steps (Still needed for system-wide install) ---
+# --- Installation Steps ---
 pkgdatadir = join_paths(get_option('prefix'), get_option('datadir'), meson.project_name())
 gschema_dir = join_paths(pkgdatadir, 'glib-2.0', 'schemas')
-
-# Install the SOURCE schema file to the target system directory
 install_data(gschema_file, install_dir: gschema_dir)
-
-# Run glib-compile-schemas during the actual install process in the target system directory
 meson.add_install_script('glib-compile-schemas', gschema_dir)
 
 # Final newline added below

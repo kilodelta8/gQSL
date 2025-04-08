@@ -3,3 +3,8 @@ gcc /Users/john/Dev/gQSL/src/main.c -o gqsl `pkg-config --cflags --libs gtk+-3.0
 meson build
 ninja -C build
 ./build/gqsl
+
+
+ninja -C build clean
+ninja -C build
+GSETTINGS_SCHEMA_DIR=./build ./build/gqsl

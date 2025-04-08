@@ -1,7 +1,10 @@
 # gQSL Ham Radio QSL Logging Software and API
 
 ## UPDATES
-![gQSL first screenshot](./gh_assets/gqsl001.png)
+![gQSL first screenshot](./gh_assets/gqsl005.png)
+![gQSL second screenshot](./gh_assets/gqsl002.png)
+![gQSL third screenshot](./gh_assets/gqsl003.png)
+![gQSL fourth screenshot](./gh_assets/gqsl004.png)
 
 
 
